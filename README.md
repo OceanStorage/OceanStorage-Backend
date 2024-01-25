@@ -7,9 +7,8 @@
 # OceanStorage
 轻量、迅捷、安全地上传、存储和分发静态资源
 
+欢迎使用免费、开放的官方部署：[storage.codesocean.top](https://storage.codesocean.top)
 </div>
-
-<br>
 <br>
 
 ## OceanStorage 是什么？
@@ -21,8 +20,7 @@ OceanStorage 的前后端代码完全开源在GitHub平台。
 - 部署你自己的 OceanStorage
 OceanStorage 非常容易部署，参考 [OceanStorage 开发者文档](https://oceanstorage.github.io/docs/#/README) “服务部署” 部分。
 
-- 使用我们提供的在线资源托管服务
-OceanStorage 提供了公益的在线资源托管服务，参考 [OceanStorage](https://storage.codesocean.top)
+- 使用我们提供的在线资源托管服务：OceanStorage 提供了公益的在线资源托管服务，参考 [OceanStorage](https://storage.codesocean.top)
 
 ## 开发
 ### Clone
