@@ -7,8 +7,8 @@ const userServices = require("../../../services/userServices.js")
 const auth = async (req, res, next) => {
     try {
         // 获取客户端请求头的ApiKey
-        let api_key = String(req.headers.apikey);
-        if (api_key == undefined) api_key = String(req.body.apikey);
+        let api_key = req.headers.apikey;
+        if (api_key == undefined) api_key = req.body.apikey;
         if (api_key == undefined) {
             req.authInfo.apiKeyAuth.status = "absent";
             next();

@@ -120,9 +120,11 @@ const userService = {
             try {
                 await execTransaction(async (query, commit, rollback) => {
                     try {
-                        await query(`UPDATE asso_user_group_activation_codes
-                        SET is_used_by = ?, used_time = ? WHERE activation_code = ?`, 
-                        [userId, new Date(), giftCard]);
+                        if(card.infinite != 1) {
+                            await query(`UPDATE asso_user_group_activation_codes
+                            SET is_used_by = ?, used_time = ? WHERE activation_code = ?`, 
+                            [userId, new Date(), giftCard]);
+                        }
                         await query(`UPDATE users SET user_group = ?, user_group_valid_time = ? WHERE user_id = ?`, 
                         [card.user_group_id, card.expire_time, userId]);
                         commit();

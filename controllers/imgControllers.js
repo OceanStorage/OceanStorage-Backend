@@ -138,9 +138,10 @@ module.exports = {
             req.fileExt = extname;
             req.query.container = req.container_info.container_id;
 
+
             //拼接成图片名
             let keepname = req.resourceId + extname;
-            fs.writeFile(path.join(process.cwd(), globalStates.config.resourceBase, keepname), dataBuffer, async (err) => {
+            fs.writeFile(path.join(globalStates.config.resourceBase, keepname), dataBuffer, async (err) => {
                 if (err) { return res.send('写入失败') }
                 req.fileAccepted = {
                     status: true,

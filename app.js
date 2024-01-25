@@ -18,12 +18,18 @@ require('./vitals/objectFilter');
 // Express 引用实例化
 const app = express();
 
+app.use(express.static("./static.old"))
+app.use(express.static("./webapp"))
+
 // 使用 morgan 打印日志
 app.use(morgan('dev'));
 
 // 使用对 Post 来的数据 json 格式化
-app.use(express.json());
+app.use(express.json({
+    limit:'20mb',
+}));
 app.use(bodyParser.urlencoded({
+    limit:'20mb',
     extended: true
 }));
 let multipartyExcludedPath = [
