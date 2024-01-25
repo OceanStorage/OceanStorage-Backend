@@ -11,9 +11,9 @@ router.get("/getContainerInfoById", auth.authInitialize, auth.tokenAuth, auth.se
 
 router.get("/getResourcesByContainerId", auth.authInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.getResourcesByContainerId);
 
-router.post("/rename/[0-9]{15,18}", auth.authInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.renameResource);
+router.post("/rename/[0-9]{10,18}", auth.authInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.renameResource);
 
-router.post("/delete/[0-9]{15,18}", auth.authInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.deleteResource);
+router.post("/delete/[0-9]{10,18}", auth.authInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.deleteResource);
 
 //（必须使用账户类型的key）
 router.post("/createNewContainer", auth.authInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.createNewContainer);
@@ -35,10 +35,10 @@ router.post('/deleteImgApiKey', auth.authInitialize, auth.tokenAuth, auth.authFi
 router.post("/upload", auth.unforcedAuthInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, resourceControllers.beforeUploadCheck, 
             resourceControllers.multerMiddleware.single('file'), resourceControllers.uploadResource, resourceControllers.uploadResourceAfter);
 
-router.get("/download/[0-9]{15,18}", auth.unforcedAuthInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, 
+router.get("/download/[0-9]{10,18}", auth.unforcedAuthInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, 
             resourceControllers.downloadResource);
 
-router.get("/get/[0-9]{15,18}", auth.unforcedAuthInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, 
+router.get("/get/[0-9]{10,18}", auth.unforcedAuthInitialize, auth.tokenAuth, auth.serviceKeyAuth, auth.authFinalize, 
             resourceControllers.getResource, resourceControllers.getResourceAfter);
 
 module.exports = router;

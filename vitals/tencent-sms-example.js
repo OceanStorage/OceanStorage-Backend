@@ -1,8 +1,8 @@
 // Depends on tencentcloud-sdk-nodejs version 4.0.3 or higher
 const tencentcloud = require("tencentcloud-sdk-nodejs-sms");
 const SECRET = {
-    TencentSecretId: 'AKID53nJahbKpJbXGrJXVDrNfjZNfkaCcnpi',
-	TencentSecretKey: 'lJivtgHcjXCG9pGWYMyNbcT9pNjtpcCc'
+    TencentSecretId: '',
+	TencentSecretKey: ''
 }
 const SmsClient = tencentcloud.sms.v20210111.Client;
 

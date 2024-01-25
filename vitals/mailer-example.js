@@ -13,8 +13,8 @@ let sendValidateCode = (to, validateCode, timeLimit) => new Promise((resolve, re
             host: "smtp.163.com",
             secure:false,
             auth: {
-                user: 'peci_official@163.com',
-                pass: 'UQYTIYMNIERYMJVI'
+                user: '',
+                pass: ''
             }
         }
     
@@ -29,7 +29,7 @@ let sendValidateCode = (to, validateCode, timeLimit) => new Promise((resolve, re
             siteName: keywords.siteName
         })
         const mail = {
-            from: `"${keywords.inscribe}"<peci_official@163.com>`,
+            from: `"${keywords.inscribe}"<>`,
             subject: `[${keywords.siteName}] 电子邮箱验证码`,
             to: to,
             html: ret

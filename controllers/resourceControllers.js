@@ -257,7 +257,7 @@ module.exports = {
     },
     multerMiddleware: multer({
         storage: multer.diskStorage({
-            destination: path.join(process.cwd(), globalStates.config.resourceBase),
+            destination: globalStates.config.resourceBase,
             filename(req, file, cb) {
                 const originalname = file.originalname;
                 const i = originalname.lastIndexOf('.');
@@ -361,6 +361,8 @@ module.exports = {
             let urlLs = req.url.split("/");
             let resourceId = urlLs[urlLs.length - 1];
             let resource = await resourceServices.getResourceById(resourceId);
+            // 判断文件是否存在
+            fs.accessSync(path.join(globalStates.config.resourceBase, resource.resource_id + resource.file_ext), fs.constants.R_OK);
             if (resource != undefined && hasPermission(req.authInfo, "resource", "resource", resource, 'r')) {
                 // 进行用户组用量判断
                 let visitCheckResult = await infoServices.getVisitCheck(resource.user_id, "download");
@@ -390,6 +392,8 @@ module.exports = {
             let urlLs = req.url.split("/");
             let resourceId = urlLs[urlLs.length - 1];
             let resource = await resourceServices.getResourceById(resourceId);
+            // 判断文件是否存在
+            fs.accessSync(path.join(globalStates.config.resourceBase, resource.resource_id + resource.file_ext), fs.constants.R_OK);
             if (resource != undefined && hasPermission(req.authInfo, "resource", "resource", resource, 'r')) {
                 // 进行用户组用量判断
                 let visitCheckResult = await infoServices.getVisitCheck(resource.user_id, "download");

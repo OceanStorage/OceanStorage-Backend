@@ -9,7 +9,7 @@ router.get("/image/get_img_count", auth.authInitialize, apiKeyAuth, auth.authFin
 
 router.get("/image/get_all_imgs", auth.authInitialize, apiKeyAuth, auth.authFinalize, imgControllers.getAllImgs);
 
-router.get("/image/[0-9]{10,}", imgControllers.getImgPre, resourceControllers.getResource, imgControllers.getImgAfter);
+router.get("/image/[0-9]{10, 18}", imgControllers.getImgPre, resourceControllers.getResource, imgControllers.getImgAfter);
 
 router.get("/image/delete_img", auth.authInitialize, apiKeyAuth, auth.authFinalize, imgControllers.deleteImgPre, resourceControllers.deleteResource);
 

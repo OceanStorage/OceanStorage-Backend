@@ -228,7 +228,7 @@ module.exports = {
                     countdown: 60,
                     validateCountdown: 15 * 60,
                 }
-                if(req.authInfo) {
+                if(req.authInfo.authSuccess) {
                     userValidates[req.body.content].userId = req.authInfo.user.user_id
                 }
                 res.status(200).json(responses.OK());
